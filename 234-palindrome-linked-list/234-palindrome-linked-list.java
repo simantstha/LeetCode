@@ -10,20 +10,19 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        int og_val=0;
-        int no_val=0;
-        int i=1;
-        while(head!=null)
-        {
-            og_val=og_val*10+head.val;
-            no_val=i*head.val+no_val;
-            head=head.next;
-            i=i*10;
-            
+        ListNode head2 = head;
+        ListNode back = new ListNode(head2.val);        
+        while (head2.next != null){
+            back = new ListNode(head2.next.val, back);
+            head2 = head2.next;
         }
-        if(og_val==no_val)
-            return true;
-        else
-            return false;
+        
+        //compare
+        do{
+            if (head.val != back.val) return false;
+            head = head.next;
+            back = back.next;
+        } while(head != null);
+        return true;
     }
 }
