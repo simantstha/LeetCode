@@ -5,7 +5,6 @@ class Solution {
         for(int i=1;i<prices.length;i++)
         {
             curr=Math.max(0,curr+=prices[i]-prices[i-1]);
-            System.out.println(curr);
             profit=Math.max(curr,profit);
         }
         return profit;
